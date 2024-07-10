@@ -17,6 +17,9 @@
 #error [lingua.h]: Requires Llibs framework included before Lingua.
 #endif
 
+/* Include Llibs framework (depended)*/
+#include <llibs.h>
+
 /* Include standard Lingua libraries */
 #include "utf8.h"
 
