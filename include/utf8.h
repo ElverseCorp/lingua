@@ -11,14 +11,17 @@
 
 /* Must be included in lingua.h */
 
+/* Macroses */
+#define LINGUA_LC_I64_BUFFER_SIZE 65
+
 /** 
  * @brief Convert int64 to binary string
  * 
- * @param[in] num integer number to convert
  * @param[out] out output string buffer
+ * @param[in] num integer number to convert
  * @return Length of the resulting string
  */
-extern lsz lsi64bin(li64 num, lc* out);
+extern lsz lsi64bin(lc* out, li64 num);
 
 /** 
  * @brief Convert int64 to decimal string
@@ -27,7 +30,7 @@ extern lsz lsi64bin(li64 num, lc* out);
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-extern lsz lsi64dec(li64 num, lc* out);
+extern lsz lsi64dec(lc* out, li64 num);
 
 /** 
  * @brief Convert int64 to octal string
@@ -36,7 +39,7 @@ extern lsz lsi64dec(li64 num, lc* out);
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-extern lsz lsi64oct(li64 num, lc* out);
+extern lsz lsi64oct(lc* out, li64 num);
 
 /** 
  * @brief Convert int64 to hexadecimal string
@@ -45,6 +48,6 @@ extern lsz lsi64oct(li64 num, lc* out);
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-extern lsz lsi64hex(li64 num, lc* out);
+extern lsz lsi64hex(lc* out, li64 num);
 
 #endif // LINGUA_FRAMERWORK_UTF_8_H_

@@ -8,7 +8,7 @@
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-lsz lsi64bin(li64 num, lc* out) {
+lsz lsi64bin(lc* out, li64 num) {
     lc* ptr = out;
     li64 mask = (li64)1 << 63;
 
@@ -28,7 +28,7 @@ lsz lsi64bin(li64 num, lc* out) {
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-lsz lsi64dec(li64 num, lc* out) {
+lsz lsi64dec(lc* out, li64 num) {
     lc buffer[21];
     lc* ptr = buffer + 20;
     *ptr = '\0';
@@ -55,7 +55,7 @@ lsz lsi64dec(li64 num, lc* out) {
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-lsz lsi64oct(li64 num, lc* out) {
+lsz lsi64oct(lc* out, li64 num) {
     lc buffer[23];
     lc* ptr = buffer + 22;
     *ptr = '\0';
@@ -82,12 +82,12 @@ lsz lsi64oct(li64 num, lc* out) {
  * @param[out] out output string buffer
  * @return Length of the resulting string
  */
-lsz lsi64hex(li64 num, lc* out) {
+lsz lsi64hex(lc* out, li64 num) {
     lc buffer[17];
     lc* ptr = buffer + 16;
     *ptr = '\0';
     li64 abs_num = num < 0 ? -num : num;
-    const lc* digits = "0123456789ABCDEF";
+    const lc* digits = X("0123456789ABCDEF");
     do {
         *--ptr = digits[abs_num & 0xF];
         abs_num >>= 4;
