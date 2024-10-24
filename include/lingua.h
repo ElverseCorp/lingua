@@ -1,29 +1,32 @@
-#ifndef LINGUA_FRAMERWORK_H_
-#define LINGUA_FRAMERWORK_H_
+#ifndef LINGUA_H_
+#define LINGUA_H_
 
 /**************************************************************************//**
  * @file     lingua.h
- * @brief    Project L - Lingua framework (Llibs-based), main header file.
+ * @brief    Elverse Corp.
  * @version  V0.0.2
- * @date     26. Feb 2024
+ * @date     24. October 2024
  * @author   Matvey Rybalkin
-******************************************************************************/
+ ******************************************************************************/
 
-/* Check C standard */
-#if __STDC_VERSION__  >= 201112L
+#ifdef ELLIPSE_VERSION
+#if ELLIPSE_VERSION >= 2.0
 
-/* Check Llibs framework */
-#ifndef LLIBS_FRAMEWORK_H_
-#error [lingua.h]: Requires Llibs framework included before Lingua.
+#ifdef ELLIPSE_LANGUAGE_CPP
+extern "C" {
+#endif 
+
+// Include every header file
+
+#ifdef ELLIPSE_LANGUAGE_CPP
+}
+#endif 
+
+#else
+#   error "[LINGUA] ERROR: The minimum required version of the Ellipse framework is 2.0. Download it from `https://github.com/ElverseCorp/llibs`"
+#endif
+#else
+#   error "[LINGUA] ERROR: Must be used only with Ellipse framework. HELP: add #include <llibs.h> or #include <llibs.hpp>
 #endif
 
-/* Include Llibs framework (depended)*/
-#include <llibs.h>
-
-/* Include standard Lingua libraries */
-#include "utf8.h"
-
-#else /* ERROR (__STDC_VERSION__ >= 201112L) */
-#error [lingua.h]: Requires at least version C 2011 (__STDC_VERSION__ >= 201112L)
-#endif
-#endif // LINGUA_FRAMERWORK_H_
+#endif // LINGUA_H_
